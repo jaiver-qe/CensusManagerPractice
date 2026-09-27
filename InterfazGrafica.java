@@ -106,21 +106,21 @@ public class InterfazGrafica {
         ventanaPrincipal.add(sexoLabel);
 
         // Campos de texto.
-        JTextField identificacionTextField = new JTextField();
+        identificacionTextField = new JTextField();
         identificacionTextField.setBounds(160, 50, 180, 25); // Posiciona el text field en la ventana
         ventanaPrincipal.add(identificacionTextField); // Agrega el text field a la ventana
 
-        JTextField nombreTextField = new JTextField();
+        nombreTextField = new JTextField();
         nombreTextField.setBounds(160, 90, 180, 25); // Posiciona el text field en la ventana
         ventanaPrincipal.add(nombreTextField); // Agrega el text field a la ventana
 
-        JTextField apellidoTextField = new JTextField();
+        apellidoTextField = new JTextField();
         apellidoTextField.setBounds(160, 130, 180, 25);
         ventanaPrincipal.add(apellidoTextField);
 
         // Usamos un comboBox para seleccionar el genero.
         String[] soloHayDosGeneros = {"Masculino", "Femenino", "Helicoptero Apache"};
-        JComboBox<String> sexoComboBox = new JComboBox<>(soloHayDosGeneros);
+        sexoComboBox = new JComboBox<>(soloHayDosGeneros);
         sexoComboBox.setBounds(160, 170, 180, 25);
         ventanaPrincipal.add(sexoComboBox);
         
@@ -139,15 +139,14 @@ public class InterfazGrafica {
         ventanaPrincipal.add(botonGuardar);        
     }
 
-
     /*
     * Creamos la tabla para mostrar la informacion.
     */     
     public void crearTabla(){
         String[] columnas = {"Identificacion", "Nombre", "Apellido", "Sexo"}; // Encabezados de las columnas
-        DefaultTableModel modeloDeLaTabla = new DefaultTableModel(columnas, 0); // Creamos un modelo para la tabla
+        modeloDeLaTabla = new DefaultTableModel(columnas, 0); // Creamos un modelo para la tabla
 
-        JTable tablaDePersonasCensadas = new JTable(modeloDeLaTabla); // Creamos la tabla asignando el modelo anterior.
+        tablaDePersonasCensadas = new JTable(modeloDeLaTabla); // Creamos la tabla asignando el modelo anterior.
 
         JScrollPane scrollTabla = new JScrollPane(tablaDePersonasCensadas); // Creamos un scroll para la tabla
         tablaDePersonasCensadas.getTableHeader().setReorderingAllowed(false); // Evitamos que el usuario pueda reordenar las columnas.
@@ -180,7 +179,7 @@ public class InterfazGrafica {
 
                     int identificacion = Integer.parseInt(identificacionString);
 
-                    Persona personaACensar = new Persona(identificacion, nombre, apellido, sexo);
+                    personaACensar = new Persona(identificacion, nombre, apellido, sexo);
                     unCenso.censarPersona(personaACensar);
 
                     // Guardamos los datos en la base de datos.
